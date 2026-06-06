@@ -1,12 +1,104 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title>Demo Text</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Pakai gradasi senja yang sama dengan halaman utama */
+            background: linear-gradient(135deg, #2c1654 0%, #f15bb5 50%, #ee9b00 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* Highlight untuk variabel nama dari Flask */
+        .nama-user {
+            color: #ffd166; /* Warna kuning senja cerah biar mencolok */
+            font-weight: 600;
+            display: block;
+            font-size: 22px;
+            margin-top: 5px;
+        }
+
+        /* Tombol Kembali berbentuk link bergaya tombol */
+        .btn-kembali {
+            display: block;
+            width: 100%;
+            background: #ffffff;
+            color: #2c1654;
+            text-decoration: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-kembali:hover {
+            background: #ffd166;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(238, 155, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
-   <h2>Demo Text</h2>
-   
-   <p><strong>{{ nama }}</strong>, 
-   selamat datang di pemrograman Python.</p>
-   
+
+    <div class="container">
+        <h2>Halo, Selamat Datang!</h2>
+        <p>Nama lengkap kamu adalah: <span class="nama-user">{{ nama }}</span></p>
+        
+        <a href="/" class="btn-kembali">Kembali</a>
+    </div>
+
 </body>
 </html>

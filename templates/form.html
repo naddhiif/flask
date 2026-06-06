@@ -1,17 +1,134 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-   <title>Demo Text</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Senja Aesthetic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Membuat gradasi warna langit senja (ungu, pink, oranye hangat) */
+            background: linear-gradient(135deg, #2c1654 0%, #f15bb5 50%, #ee9b00 100%);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite; /* Efek warna bergerak pelan */
+            overflow: hidden;
+        }
+
+        /* Animasi agar latar belakang senjanya seolah hidup bergerak lambat */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Kotak Form Utama */
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Putih transparan */
+            backdrop-filter: blur(12px);          /* Efek kaca buram */
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 30px;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        h2 {
+            color: #ffffff;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Grouping untuk Input */
+        .input-group {
+            position: relative;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .input-group label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            font-weight: 300;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .input-group input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.4);
+            padding: 8px 0;
+            color: #ffffff;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        /* Efek saat kolom input diklik */
+        .input-group input:focus {
+            border-bottom-color: #ffd166; /* Garis berubah kuning senja cerah */
+        }
+
+        /* Tombol Kirim */
+        button {
+            width: 100%;
+            background: #ffffff;
+            color: #2c1654; /* Teks warna ungu gelap senja */
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Efek saat tombol diarahkan kursor (hover) */
+        button:hover {
+            background: #ffd166; /* Berubah jadi kuning hangat */
+            transform: translateY(-2px); /* Tombol agak mengangkat naik */
+            box-shadow: 0 6px 20px rgba(238, 155, 0, 0.4);
+        }
+    </style>
 </head>
 <body>
-   <h2>Demo Text</h2>
-   
-   <form action="/" method="post">
-      Nama depan:<br />
-      <input type="text" name="namaDepan" size="25" /><br />
-      Nama belakang:<br />
-      <input type="text" name="namaBelakang" size="25" />
-      <p><input type="submit"  value="Kirim" /></p>
-   </form>
-   
+
+    <div class="container">
+        <h2>Flask Sunset</h2>
+        
+        <form action="/" method="POST">
+            <div class="input-group">
+                <label for="namaDepan">Enter first name</label>
+                <input type="text" id="namaDepan" name="namaDepan" required autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <label for="namaBelakang">Enter last name</label>
+                <input type="text" id="namaBelakang" name="namaBelakang" required autocomplete="off">
+            </div>
+            
+            <button type="submit">Kirim</button>
+        </form>
+    </div>
+
 </body>
 </html>
