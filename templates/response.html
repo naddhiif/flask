@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halo!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Selamat Datang di Senja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -19,85 +19,143 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            /* Pakai gradasi senja yang sama dengan halaman utama */
-            background: linear-gradient(135deg, #2c1654 0%, #f15bb5 50%, #ee9b00 100%);
-            background-size: 400% 400%;
-            animation: gradientAnimation 15s ease infinite;
+            /* Menggunakan background gunung senja berawan yang sama agar sinkron */
+            background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
             overflow: hidden;
         }
 
-        @keyframes gradientAnimation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Lapisan gelap agar efek kaca lebih menyala */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
         }
 
         .container {
+            position: relative;
+            z-index: 2;
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 50px 40px;
             width: 90%;
-            max-width: 400px;
-            border-radius: 20px;
+            max-width: 450px;
+            border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
             text-align: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        /* Animasi muncul halus saat halaman dimuat */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Dekorasi lingkaran senja kecil di dalam kartu */
+        .avatar-glow {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #fca311, #ff477e);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 20px rgba(252, 163, 17, 0.6);
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
         }
 
         h2 {
             color: #ffffff;
-            font-weight: 600;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: 700;
+            font-size: 26px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
-        p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-            font-weight: 300;
+        .sub-title {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
             margin-bottom: 30px;
-            line-height: 1.6;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* Highlight untuk variabel nama dari Flask */
+        /* Kotak khusus untuk memamerkan nama user */
+        .result-box {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .label-name {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
         .nama-user {
-            color: #ffd166; /* Warna kuning senja cerah biar mencolok */
+            color: #ffd166; /* Kuning emas senja */
             font-weight: 600;
-            display: block;
-            font-size: 22px;
-            margin-top: 5px;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.4);
+            word-wrap: break-word;
         }
 
-        /* Tombol Kembali berbentuk link bergaya tombol */
+        /* Tombol Kembali yang lebih elegan */
         .btn-kembali {
-            display: block;
+            display: inline-block;
             width: 100%;
-            background: #ffffff;
-            color: #2c1654;
+            background: transparent;
+            color: #ffffff;
             text-decoration: none;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
             font-weight: 600;
-            border-radius: 25px;
-            transition: 0.3s ease;
+            border-radius: 50px;
+            border: 2px solid #ffffff;
+            transition: all 0.3s dashed;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .btn-kembali:hover {
-            background: #ffd166;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(238, 155, 0, 0.4);
+            background: #ffffff;
+            color: #14213d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h2>Halo, Selamat Datang!</h2>
-        <p>Nama lengkap kamu adalah: <span class="nama-user">{{ nama }}</span></p>
+        <div class="avatar-glow">✓</div>
         
-        <a href="/" class="btn-kembali">Kembali</a>
+        <h2>Halo, Selamat datang!</h2>
+        <div class="sub-title">Demo Text</div>
+        
+        <div class="result-box">
+            <span class="label-name">Registered Name</span>
+            <span class="nama-user">{{ nama }}</span>
+        </div>
+        
+        <a href="/" class="btn-kembali">Kembali ke Beranda</a>
     </div>
 
 </body>
